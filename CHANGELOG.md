@@ -9,6 +9,9 @@ This file is used to list changes made in each version of the TraceView cookbook
 * Update various descriptions.
 * Update URLs.
 
+## 0.0.9
+* Added name of the cookbook to metadata.rb and added case for centos/redhat distros in apache recipe
+
 ## 0.0.7
 * customizable apache oboe.conf template, cleaner default attributes
 

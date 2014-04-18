@@ -4,13 +4,25 @@ package "libapache2-mod-oboe" do
     action :install
 end
 
-template "/etc/apache2/mods-available/oboe.conf" do
-    cookbook node['traceview']['apache']['cookbook']
-    source node['traceview']['apache']['template']
-    mode "0644"
-    owner "root"
-    group "root"
-    notifies :reload, "service[apache2]", :delayed
+case node['platform']
+when "ubuntu", "debian"
+  template "/etc/apache2/mods-available/oboe.conf" do
+      cookbook node['traceview']['apache']['cookbook']
+      source node['traceview']['apache']['template']
+      mode "0644"
+      owner "root"
+      group "root"
+      notifies :reload, "service[apache2]", :delayed
+  end
+when "redhat", "centos"
+  template "/etc/httpd/mods-available/oboe.conf" do
+      cookbook node['traceview']['apache']['cookbook']
+      source node['traceview']['apache']['template']
+      mode "0644"
+      owner "root"
+      group "root"
+      notifies :reload, "service[apache2]", :delayed
+  end
 end
 
 if node['traceview']['appname']
