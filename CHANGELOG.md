@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the TraceView cookbook.
 
+## 0.0.10
+* Added /etc/sysconfig/tracelyzer template to control collector_port
+
 ## 0.0.8
 * Removed the deprecated MySQL client recipe.
 * Rebrand cookbook to TraceView.

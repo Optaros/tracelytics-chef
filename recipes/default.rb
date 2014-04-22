@@ -18,6 +18,10 @@ template "/etc/tracelytics.conf" do
     source "etc/tracelytics.conf.erb"
 end
 
+template "/etc/sysconfig/tracelyzer" do
+	source "etc/sysconfig_tracelyzer.erb"
+end
+
 # Install the packages
 case node['platform']
 when "ubuntu", "debian"

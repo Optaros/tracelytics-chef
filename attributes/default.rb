@@ -2,6 +2,9 @@
 # Apache instrumentation
 #
 
+# Specify collector port in case port 2222 is blocked in some infrastructures
+default['traceview']['collector_port'] = 2222	
+
 # Cookbook and template to use for /etc/apache2/mods-available/oboe.conf
 default['traceview']['apache']['cookbook'] = "traceview"
 default['traceview']['apache']['template'] = "etc/apache2/mods-available/oboe.conf.erb"
