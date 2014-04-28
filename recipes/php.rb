@@ -4,12 +4,24 @@ package "php-oboe" do
     action :install
 end
 
-template "/etc/php5/conf.d/oboe.ini" do
-    source "oboe.ini.erb"
-    mode "0644"
-    owner "root"
-    group "root"
-    notifies :restart, "service[apache2]", :delayed
+
+case node['platform']
+when "ubuntu", "debian"
+  template "/etc/php5/conf.d/oboe.ini" do
+      source "oboe.ini.erb"
+      mode "0644"
+      owner "root"
+      group "root"
+      notifies :restart, "service[apache2]", :delayed
+  end
+when "redhat", "centos"
+  template "/etc/php.d/oboe.ini" do
+      source "oboe.ini.erb"
+      mode "0644"
+      owner "root"
+      group "root"
+      notifies :restart, "service[apache2]", :delayed
+  end
 end
 
 if node['traceview']['php']['appname']
