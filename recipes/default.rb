@@ -18,9 +18,11 @@ template "/etc/tracelytics.conf" do
     source "etc/tracelytics.conf.erb"
 end
 
-template "/etc/sysconfig/tracelyzer" do
-	source "etc/sysconfig_tracelyzer.erb"
-end
+if node['traceview']['collector_port'] != 2222 
+  template "/etc/sysconfig/tracelyzer" do
+  	source "etc/sysconfig_tracelyzer.erb"
+  end
+end 
 
 # Install the packages
 case node['platform']

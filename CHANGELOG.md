@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the TraceView cookbook.
 
+## 0.0.11
+* Only set up collector_port if different than 2222
+* Use v2 API and "create" parameter when assigning apps
+
 ## 0.0.10
 * Added /etc/sysconfig/tracelyzer template to control collector_port
 

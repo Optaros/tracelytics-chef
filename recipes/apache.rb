@@ -31,11 +31,12 @@ ruby_block "register traceview app" do
     require 'rest-client'
 
     begin
-      response = RestClient.post('https://api.tv.appneta.com/api-v1/assign_app', {
+      response = RestClient.post('https://api.tv.appneta.com/api-v2/assign_app', {
         :key => node['traceview']['access_key'],
         :hostname => node['hostname'],
         :appname => node['traceview']['appname'],
-        :layer => "apache"
+        :layer => "apache",
+        :create => true
       })
 
       Chef::Log.debug("register POST request response: #{response}")
