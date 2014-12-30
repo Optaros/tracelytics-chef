@@ -33,6 +33,9 @@ when "redhat", "centos"
 end
 packages.each do |package_name|
     package package_name do
-        action [:install, :enable]
+        action :install
     end
+end
+execute "enable traceview" do
+    command "/sbin/chkconfig --add tracelyzer; /sbin/chkconfig tracelyzer on"
 end

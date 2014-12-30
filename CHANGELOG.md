@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the TraceView cookbook.
 
+## 0.0.13
+* correct syntax to add tracelyzer at boot
+
+## 0.0.12 
+* add tracelyzer to start at boot (failed) 
+
 ## 0.0.11
 * Only set up collector_port if different than 2222
 * Use v2 API and "create" parameter when assigning apps
