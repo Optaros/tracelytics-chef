@@ -1,4 +1,4 @@
-[tracelytics]
+"[tracelytics]"
 $key = node['traceview']['access_key']
 name=Tracelytics
 baseurl="http://yum.tracelytics.com/'#{$key}'/6/x86_64"
