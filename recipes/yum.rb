@@ -1,3 +1,4 @@
+require 'erb'
 [tracelytics]
 name=Tracelytics
 baseurl=http://yum.tracelytics.com/<%= node['traceview']['access_key'] %>/6/x86_64
