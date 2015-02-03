@@ -1,5 +1,9 @@
-[tracelytics]
-name=Tracelytics
-baseurl="http://yum.tracelytics.com/793aa621-8484-496d-aff8-54ca97073cf3/6/x86_64"
-gpgkey="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-tracelytics"
-gpgcheck=1
+majorver = node['platform_version'].to_i.to_s
+arch = node['kernel']['machine']
+
+yum_repository "tracelytics" do
+url "http://yum.tracelytics.com/#{majorver}/#{arch}"
+gpgkey 'https://yum.tracelytics.com/RPM-GPG-KEY-tracelytics'
+description "Tracelytics repository"
+action :add
+end
