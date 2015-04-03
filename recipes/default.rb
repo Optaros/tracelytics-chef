@@ -36,6 +36,10 @@ packages.each do |package_name|
         action :install
     end
 end
-execute "enable traceview" do
+
+case node["platform_family"]
+when "rhel"
+  execute "enable traceview" do
     command "/sbin/chkconfig --add tracelyzer; /sbin/chkconfig tracelyzer on"
+   end
 end
